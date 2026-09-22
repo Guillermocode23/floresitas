@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Audio</title>
+<style>
+.btn-audio {
+background-color: #610276;
+color: #FFFFFF;
+border: none;
+padding: 12px 24px;
+font-size: 16px;
+border-radius: 8px;
+cursor: pointer;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+transition: background-color 0.2s;
+}
+.btn-audio:hover {
+background-color: #4a0159;
+}
+#player {
+display: none;
+}
+</style>
+</head>
+<body>
+<button id="audioToggle" class="btn-audio">
+<span>💜</span> Reproducir audio
+</button>
+<div id="player"></div>
+<script src="[https://www.youtube.com/iframe_api](https://www.youtube.com/iframe_api)"></script>
+<script>
+let player;
+let isPlaying = false;
+const btn = document.getElementById('audioToggle');
+function onYouTubeIframeAPIReady() {
+player = new YT.Player('player', {
+height: '0',
+width: '0',
+videoId: 'Gs069dndIYk',
+playerVars: {
+start: 29,
+controls: 0
+},
+events: {
+'onStateChange': onPlayerStateChange
+}
+});
+}
+function onPlayerStateChange(event) {
+if (event.data === YT.PlayerState.PLAYING) {
+isPlaying = true;
+btn.innerHTML = '<span>⏸️</span> Pausar audio';
+} else {
+isPlaying = false;
+btn.innerHTML = '<span>💜</span> Reproducir audio';
+}
+}
+btn.addEventListener('click', () => {
+if (!player) return;
+if (isPlaying) {
+player.pauseVideo();
+} else {
+player.playVideo();
+}
+});
+</script>
+</body>
+</html>
