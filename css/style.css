@@ -17,12 +17,12 @@ body{
 .botones{
     padding: 9px;
     border-radius: 80px;
-    background-color: #06fa0f;
+    background-color: #050777;
     border: none;
 }
 
 .botones a{
-    background-color: #f3fc04;
+    background-color: #060afa;
     padding: 9px;
     border-radius: 80px;
     -webkit-border-radius: 80px;
@@ -33,7 +33,7 @@ body{
 }
 
 .botones a:focus{
-    background-color: rgb(218, 230, 5);
+    background-color: rgb(230, 5, 5);
 }
 
 .greetings{
